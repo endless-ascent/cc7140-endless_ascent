@@ -17,3 +17,25 @@ Além da dificuldade progressiva, o jogo busca oferecer uma atmosfera rica em na
 Ao desbloquear novos fragmentos de idioma e novas classes, o jogador sente que está, de fato, reconstruindo algo maior do que si mesmo. Essa sensação de propósito, aliada à customização das builds e à diversidade de desafios — como puzzles, batalhas e plataformas — garante uma experiência rica, variada e emocionalmente significativa.
 
 O jogo busca equilibrar dificuldade e narrativa, oferecendo ao jogador não apenas um desafio mecânico, mas também uma jornada simbólica de redenção, reconstrução e transcendência.
+
+## Esboço do Game Loop
+
+O jogo rodará em um ciclo contínuo, onde a lógica será constantemente verificada. Durante o loop, serão processadas as seguintes ações:
+- Atualização da posição do jogador e dos inimigos.
+- Detecção de colisões com plataformas, armadilhas e inimigos.
+- Aplicação de dano e cálculo de morte para personagens.
+- Verificação de eventos especiais, como salas de buffs ou chefes.
+- Gerenciamento da sucessão de guerreiros em caso de morte.
+
+#### Atores e Componentes
+- Implementação de mecânicas de movimentação do guerreiro, incluindo pulo, ataque e esquiva.
+- IA dos inimigos, determinando padrões de patrulha, perseguição e ataque.
+- Comportamento dos deuses guardiões, cada um com habilidades únicas e desafios diferenciados.
+- Elementos interativos, como plataformas móveis, alavancas e armadilhas.
+
+#### Mecânica de Jogo
+- Sistema de combate fluido, com variedade de armas e estilos de luta.
+- Progressão de personagem, permitindo melhorias nos atributos e desbloqueio de novas habilidades.
+- Seleção de buffs e armas aleatórias ao longo da jornada.
+- Sistema de morte e sucessão, onde um novo guerreiro assume o lugar do anterior e pode herdar habilidades desbloqueadas.
+- Gestão da ``Vontade Ancestral'' para compra de melhorias permanentes entre as tentativas.
