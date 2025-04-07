@@ -75,6 +75,7 @@ O jogador interage com o jogo por meio do teclado e mouse. As principais ações
 - **Sistema de Upgrades:**
   - Árvore de habilidades e atributos modificáveis através de escolhas em andares especiais.
   - A “vontade ancestral” como recurso para evoluir o personagem e personalizar o estilo de jogo.
+- **Vida**: 100hp inicialmente, variável com upgrades.
 
 ### Limites do Jogo
 
