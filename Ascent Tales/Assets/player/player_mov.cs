@@ -22,13 +22,13 @@ public class player_mov : MonoBehaviour
         // rb.velocity = new Vector2(horizontalInput * movespeed, rb.velocity.y);
         if (Input.GetButtonDown("Jump") && !isJumping)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpPower);
             isJumping = true;
         }
     }
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontalInput * movespeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(horizontalInput * movespeed, rb.linearVelocity.y);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
