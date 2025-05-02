@@ -11,12 +11,19 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded = true; // Check if the player is on the ground
     private bool canAttack = true; // Cooldown flag for attacking
     private bool isAttacking = false; // Flag to check if the player is currently attacking
+    private bool isDead = false; // Flag to check if the player is dead
 
     public RuntimeAnimatorController idleController; // Assign in Unity Inspector
     public RuntimeAnimatorController runController; // Assign in Unity Inspector
     public RuntimeAnimatorController jumpController; // Assign in Unity Inspector
     public RuntimeAnimatorController attackController; // Assign in Unity Inspector
+    public RuntimeAnimatorController deathController; // Assign in Unity Inspector
 
+    public int health = 100; // Player's health
+    private bool canBeHit = true; // Cooldown flag to prevent multiple hits
+    public float hitCooldown = 0.5f; // Cooldown duration in seconds
+    public float flashDuration = 0.2f; // Duration for the red flash
+    public float deathAnimationDuration = 0.3f; // Duration of the death animation
     public float attackAnimationDuration = 0.3f; // Duration of the attack animation
     public float attackCooldown = 0.5f; // Cooldown duration between attacks
 
@@ -28,18 +35,21 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (!isAttacking) // Only allow movement and jumping if not attacking
+        if (!isDead) // Only allow movement and actions if the player is not dead
         {
-            HandleMovement();
-        }
+            if (!isAttacking) // Only allow movement and jumping if not attacking
+            {
+                HandleMovement();
+            }
 
-        if (canAttack && Input.GetMouseButtonDown(0)) // MouseButton1 (left mouse button)
-        {
-            StartCoroutine(HandleAttack());
-        }
-        else if (!isAttacking) // Only handle other animations if not attacking
-        {
-            HandleAnimation();
+            if (canAttack && Input.GetMouseButtonDown(0)) // MouseButton1 (left mouse button)
+            {
+                StartCoroutine(HandleAttack());
+            }
+            else if (!isAttacking) // Only handle other animations if not attacking
+            {
+                HandleAnimation();
+            }
         }
     }
 
@@ -74,7 +84,11 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAnimation()
     {
-        if (!isGrounded)
+        if (isDead)
+        {
+            animator.runtimeAnimatorController = deathController; // Prioritize death animation
+        }
+        else if (!isGrounded)
         {
             animator.runtimeAnimatorController = jumpController;
         }
@@ -95,8 +109,20 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero; // Stop player movement
         animator.runtimeAnimatorController = attackController; // Play attack animation
 
-        // Wait for the attack animation to finish
-        yield return new WaitForSeconds(attackAnimationDuration);
+        // Reference to the SwordHitBox GameObject
+        GameObject swordHitBox = transform.Find("SwordHitBox").gameObject;
+
+        // Wait for the first half of the attack animation
+        yield return new WaitForSeconds(attackAnimationDuration / 2);
+
+        // Enable the SwordHitBox
+        swordHitBox.SetActive(true);
+
+        // Wait for the second half of the attack animation
+        yield return new WaitForSeconds(attackAnimationDuration / 2);
+
+        // Disable the SwordHitBox
+        swordHitBox.SetActive(false);
 
         isAttacking = false; // Reset attacking flag
 
@@ -104,6 +130,46 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(attackCooldown - attackAnimationDuration);
 
         canAttack = true; // Re-enable attacking
+    }
+
+    public void LoseHealth(int damage)
+    {
+        if (!canBeHit) return; // Ignore if the player is in cooldown
+
+        health -= damage;
+        canBeHit = false; // Start cooldown
+
+        StartCoroutine(FlashRed()); // Flash red when hit
+
+        if (health <= 0)
+        {
+            isDead = true; // Set the player as dead
+            HandleAnimation(); // Trigger death animation
+            Destroy(gameObject, deathAnimationDuration); // Destroy the player after the death animation
+        }
+        else
+        {
+            StartCoroutine(HitCooldownCoroutine()); // Start cooldown timer
+        }
+    }
+
+    private IEnumerator HitCooldownCoroutine()
+    {
+        yield return new WaitForSeconds(hitCooldown); // Wait for the cooldown duration
+        canBeHit = true; // Allow the player to be hit again
+    }
+
+    private IEnumerator FlashRed()
+    {
+        // Change the sprite color to red
+        SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.color = Color.red;
+
+        // Wait for the flash duration
+        yield return new WaitForSeconds(flashDuration);
+
+        // Revert the sprite color to its original color
+        spriteRenderer.color = Color.white;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
