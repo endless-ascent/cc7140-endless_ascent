@@ -10,12 +10,22 @@ public class Fireball : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            // Get the Enemy component from the collided object
+            // Check for Enemy component
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.LoseHealth(strength); // Call LoseHealth on the enemy
                 Destroy(gameObject);
+                return;
+            }
+
+            // Check for ShootingEnemy component
+            ShootingEnemy shootingEnemy = collision.GetComponent<ShootingEnemy>();
+            if (shootingEnemy != null)
+            {
+                shootingEnemy.LoseHealth(strength); // Call LoseHealth on the shooting enemy
+                Destroy(gameObject);
+                return;
             }
         }
         else if (!collision.CompareTag("Player"))
