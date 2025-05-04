@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySwordHitBox : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
-    public int damage = 100; // Damage dealt to the player
+    public int strength = 34; // Damage dealt by the sword hitbox
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +14,8 @@ public class EnemySwordHitBox : MonoBehaviour
             MageController mage = collision.GetComponent<MageController>();
             if (mage != null)
             {
-                mage.LoseHealth(damage); // Call LoseHealth on the mage
+                mage.LoseHealth(strength); // Call LoseHealth on the mage
+                Destroy(gameObject);
                 return;
             }
 
@@ -22,8 +23,14 @@ public class EnemySwordHitBox : MonoBehaviour
             WarriorController warrior = collision.GetComponent<WarriorController>();
             if (warrior != null)
             {
-                warrior.LoseHealth(damage); // Call LoseHealth on the warrior
+                warrior.LoseHealth(strength); // Call LoseHealth on the warrior
+                Destroy(gameObject);
+                return;
             }
+        }
+        else if (!collision.CompareTag("Enemy"))
+        {
+            Destroy(gameObject); // Destroy the fireball if it's not the player
         }
     }
 }

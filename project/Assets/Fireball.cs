@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordHit : MonoBehaviour
+public class Fireball : MonoBehaviour
 {
-    public int strength = 1; // Damage dealt by the sword hitbox
+    public int strength = 34; // Damage dealt by the sword hitbox
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +15,7 @@ public class SwordHit : MonoBehaviour
             if (enemy != null)
             {
                 enemy.LoseHealth(strength); // Call LoseHealth on the enemy
+                Destroy(gameObject);
                 return;
             }
 
@@ -23,8 +24,13 @@ public class SwordHit : MonoBehaviour
             if (shootingEnemy != null)
             {
                 shootingEnemy.LoseHealth(strength); // Call LoseHealth on the shooting enemy
+                Destroy(gameObject);
                 return;
             }
+        }
+        else if (!collision.CompareTag("Player"))
+        {
+            Destroy(gameObject); // Destroy the fireball if it's not the player
         }
     }
 }

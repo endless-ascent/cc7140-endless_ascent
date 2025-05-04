@@ -19,6 +19,12 @@ namespace Pathfinding {
 		IAstarAI ai;
 
 		void OnEnable () {
+			// Automatically find the player GameObject and assign its Transform to target
+			GameObject player = GameObject.FindGameObjectWithTag("Player");
+			if (player != null) {
+				target = player.transform;
+			}
+
 			ai = GetComponent<IAstarAI>();
 			// Update the destination right before searching for a path as well.
 			// This is enough in theory, but this script will also update the destination every
