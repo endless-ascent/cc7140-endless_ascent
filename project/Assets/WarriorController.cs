@@ -60,7 +60,7 @@ public class WarriorController : MonoBehaviour
         // Move left or right
         if (horizontalInput != 0)
         {
-            rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
 
             // Flip the player sprite if moving left
             if (horizontalInput < 0)
@@ -71,13 +71,13 @@ public class WarriorController : MonoBehaviour
         else
         {
             // Stop horizontal movement when no key is pressed
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
 
         // Jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false;
 
             // Start a coroutine to reset isGrounded after 1.5 seconds
@@ -104,7 +104,7 @@ public class WarriorController : MonoBehaviour
         {
             animator.runtimeAnimatorController = jumpController;
         }
-        else if (Mathf.Abs(rb.velocity.x) > 0.1f)
+        else if (Mathf.Abs(rb.linearVelocity.x) > 0.1f)
         {
             animator.runtimeAnimatorController = runController;
         }
@@ -118,7 +118,7 @@ public class WarriorController : MonoBehaviour
     {
         isAttacking = true; // Set attacking flag
         canAttack = false; // Disable attacking during cooldown
-        rb.velocity = Vector2.zero; // Stop player movement
+        rb.linearVelocity = Vector2.zero; // Stop player movement
         animator.runtimeAnimatorController = attackController; // Play attack animation
 
         // Reference to the SwordHitBox GameObject

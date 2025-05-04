@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
         if (aiMovementScript != null) aiMovementScript.enabled = false;
 
         // Stop Rigidbody2D movement
-        if (rb != null) rb.velocity = Vector2.zero;
+        if (rb != null) rb.linearVelocity = Vector2.zero;
 
         // Reference to the EnemySwordHitBox GameObject
         GameObject enemySwordHitBox = transform.Find("EnemySwordHitBox").gameObject;
