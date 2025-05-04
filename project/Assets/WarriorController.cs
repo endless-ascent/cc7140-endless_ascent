@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class WarriorController : MonoBehaviour
 {
     public float moveSpeed = 5f; // Speed for left and right movement
     public float jumpForce = 10f; // Force applied for jumping

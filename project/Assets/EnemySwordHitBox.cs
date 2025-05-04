@@ -10,11 +10,19 @@ public class EnemySwordHitBox : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // Get the PlayerController component from the collided object
-            PlayerController player = collision.GetComponent<PlayerController>();
-            if (player != null)
+            // Try to get the MageController component
+            MageController mage = collision.GetComponent<MageController>();
+            if (mage != null)
             {
-                player.LoseHealth(damage); // Call LoseHealth on the player
+                mage.LoseHealth(damage); // Call LoseHealth on the mage
+                return;
+            }
+
+            // Try to get the WarriorController component
+            WarriorController warrior = collision.GetComponent<WarriorController>();
+            if (warrior != null)
+            {
+                warrior.LoseHealth(damage); // Call LoseHealth on the warrior
             }
         }
     }
