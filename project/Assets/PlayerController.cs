@@ -79,7 +79,19 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             isGrounded = false;
+
+            // Start a coroutine to reset isGrounded after 1.5 seconds
+            StartCoroutine(ResetIsGrounded());
         }
+    }
+
+    private IEnumerator ResetIsGrounded()
+    {
+        // Wait for 1.5 seconds
+        yield return new WaitForSeconds(1f);
+
+        // Reset isGrounded to true
+        isGrounded = true;
     }
 
     private void HandleAnimation()
