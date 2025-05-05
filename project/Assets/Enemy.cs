@@ -41,6 +41,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+
+        if (player == null || player.transform == null)
+        {
+            return; // Exit Update if player or its transform is null
+        }
+
         if (!isAttacking && canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             StartCoroutine(HandleAttack());

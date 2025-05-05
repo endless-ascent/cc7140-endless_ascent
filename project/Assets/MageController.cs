@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // Import the SceneManagement namespace
 
 public class MageController : MonoBehaviour
 {
@@ -170,6 +171,10 @@ public class MageController : MonoBehaviour
             isDead = true; // Set the player as dead
             HandleAnimation(); // Trigger death animation
             Destroy(gameObject, deathAnimationDuration); // Destroy the player after the death animation
+
+            // start timeout call for game over screen
+            StartCoroutine(LoadGameOverScene(deathAnimationDuration));
+            
         }
         else
         {
@@ -204,4 +209,11 @@ public class MageController : MonoBehaviour
             isGrounded = true;
         }
     }
+
+    private IEnumerator LoadGameOverScene(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        SceneManager.LoadScene("GameOver"); // Load the Game Over scene
+    }
+
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // Import the SceneManagement namespace
 
 public class WarriorController : MonoBehaviour
 {
@@ -158,6 +159,8 @@ public class WarriorController : MonoBehaviour
             isDead = true; // Set the player as dead
             HandleAnimation(); // Trigger death animation
             Destroy(gameObject, deathAnimationDuration); // Destroy the player after the death animation
+
+            StartCoroutine(LoadGameOverScene(deathAnimationDuration)); // Load Game Over scene after delay
         }
         else
         {
@@ -191,5 +194,12 @@ public class WarriorController : MonoBehaviour
         {
             isGrounded = true;
         }
+    }
+
+    private IEnumerator LoadGameOverScene(float delay)
+    {
+        Debug.Log("Game Over!"); // Log Game Over message
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        SceneManager.LoadScene("GameOver"); // Load the Game Over scene
     }
 }

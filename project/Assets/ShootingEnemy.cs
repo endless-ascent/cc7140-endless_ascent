@@ -43,6 +43,12 @@ public class ShootingEnemy : MonoBehaviour
 
     void Update()
     {
+
+        if (player == null || player.transform == null)
+        {
+            return; // Exit Update if player or its transform is null
+        }
+
         // Handle attack cooldown
         if (attackCooldownTimer > 0)
         {
