@@ -178,8 +178,11 @@ MonoBehaviour:
   soundEffectGroups:
   - name: Walk
     audioClips:
-    - {fileID: 8300000, guid: 3888a805925c67c4db0a7cb6680ca5b5, type: 3}
-    - {fileID: 8300000, guid: 05c846f21e91e5f4cbb3f26607f8b7fe, type: 3}
+    - {fileID: 8300000, guid: cbf0c63bad034694baa1172e0df3d2c5, type: 3}
+    - {fileID: 8300000, guid: faa9a69f7a59eea4ab250937b31e3517, type: 3}
+    - {fileID: 8300000, guid: 0dddee7cc8cca0946a6a9abd5d3951e4, type: 3}
+    - {fileID: 8300000, guid: fda4ee9ad58859647af05565e18da8ed, type: 3}
+    - {fileID: 8300000, guid: 7e0e652ba33efa94a8017a0e33704e92, type: 3}
   - name: Attack
     audioClips:
     - {fileID: 8300000, guid: d26d87352b4ab114094ec53111404635, type: 3}
@@ -198,6 +201,10 @@ MonoBehaviour:
     audioClips:
     - {fileID: 8300000, guid: 936d4f9d1c0d1b841be062d520b3f8bf, type: 3}
     - {fileID: 8300000, guid: 8f7a8a25af0aeed4d95c7fce9c908efd, type: 3}
+  - name: HitEnemy
+    audioClips:
+    - {fileID: 8300000, guid: ae75a41bcf070214aa1572dbdd56edf7, type: 3}
+    - {fileID: 8300000, guid: 049fcd3336eed674f98b789e61d05704, type: 3}
 --- !u!114 &5005922863267587606
 MonoBehaviour:
   m_ObjectHideFlags: 0
