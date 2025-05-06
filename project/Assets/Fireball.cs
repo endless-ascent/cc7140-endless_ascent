@@ -10,6 +10,9 @@ public class Fireball : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
+            //Sound Spell Hit
+            SoundEffectManager.Play("SpellHit");
+            
             // Check for Enemy component
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
@@ -30,6 +33,7 @@ public class Fireball : MonoBehaviour
         }
         else if (!collision.CompareTag("Player"))
         {
+            SoundEffectManager.Play("SpellMiss");
             Destroy(gameObject); // Destroy the fireball if it's not the player
         }
     }

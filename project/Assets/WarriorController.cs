@@ -28,6 +28,9 @@ public class WarriorController : MonoBehaviour
     public float attackAnimationDuration = 0.3f; // Duration of the attack animation
     public float attackCooldown = 0.5f; // Cooldown duration between attacks
 
+    public float stepSFXCooldown = 0.4f; // Tempo entre sons de passos
+    private float lastStepTime = -999f; // Último tempo em que o som foi tocado
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -62,7 +65,10 @@ public class WarriorController : MonoBehaviour
         if (horizontalInput != 0)
         {
             rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
-
+            
+            //Walk sound
+            Walk();
+            //SoundEffectManager.Play("Walk");
             // Flip the player sprite if moving left
             if (horizontalInput < 0)
                 transform.localScale = new Vector3(-1, 1, 1);
@@ -124,16 +130,16 @@ public class WarriorController : MonoBehaviour
 
         // Reference to the SwordHitBox GameObject
         GameObject swordHitBox = transform.Find("SwordHitBox").gameObject;
-
+        
         // Wait for the first half of the attack animation
         yield return new WaitForSeconds(attackAnimationDuration / 2);
 
         // Enable the SwordHitBox
         swordHitBox.SetActive(true);
-
+        
         // Wait for the second half of the attack animation
         yield return new WaitForSeconds(attackAnimationDuration / 2);
-
+        SoundEffectManager.Play("Attack");
         // Disable the SwordHitBox
         swordHitBox.SetActive(false);
 
@@ -179,10 +185,12 @@ public class WarriorController : MonoBehaviour
         // Change the sprite color to red
         SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.color = Color.red;
-
+        
+        //Hit sound
+        SoundEffectManager.Play("HitPlayer");
         // Wait for the flash duration
         yield return new WaitForSeconds(flashDuration);
-
+    
         // Revert the sprite color to its original color
         spriteRenderer.color = Color.white;
     }
@@ -202,4 +210,16 @@ public class WarriorController : MonoBehaviour
         yield return new WaitForSeconds(delay); // Wait for the specified delay
         SceneManager.LoadScene("GameOver"); // Load the Game Over scene
     }
+    private void Walk()
+    {
+        if ((Time.time - lastStepTime > stepSFXCooldown) && isGrounded)
+        {
+            SoundEffectManager.Play("Walk");
+            lastStepTime = Time.time;
+        }
+    }
+
 }
+
+
+

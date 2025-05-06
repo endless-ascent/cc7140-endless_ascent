@@ -99,7 +99,7 @@ public class Enemy : MonoBehaviour
 
         // Wait for the flash duration
         yield return new WaitForSeconds(flashDuration);
-
+        SoundEffectManager.Play("HitEnemy");
         // Revert the sprite color to its original color
         spriteRenderer.color = Color.white;
     }
