@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     private bool playerInFrontOfExit = false; // Flag to check if the player is in front of the exit
 
+    public int coins = 0; // Variable to store the number of coins
+
     // Start is called before the first frame update
     void Start()
     {
