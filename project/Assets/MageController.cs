@@ -32,6 +32,9 @@ public class MageController : MonoBehaviour
     public GameObject fireballPrefab; // Reference to the Fireball prefab
     public float fireballSpeed = 10f; // Speed of the fireball
 
+    public float stepSFXCooldown = 0.4f; // Delay sons de passos
+    private float lastStepTime = -999f; 
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -66,7 +69,7 @@ public class MageController : MonoBehaviour
         if (horizontalInput != 0)
         {
             rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
-
+            Walk();
             // Flip the player sprite if moving left
             if (horizontalInput < 0)
                 transform.localScale = new Vector3(-scale, scale, scale);
@@ -131,7 +134,7 @@ public class MageController : MonoBehaviour
 
         // Instantiate the fireball
         GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
-
+        SoundEffectManager.Play("Spell");
         // Set the fireball's direction and speed
         Rigidbody2D fireballRb = fireball.GetComponent<Rigidbody2D>();
         if (fireballRb != null)
@@ -193,7 +196,7 @@ public class MageController : MonoBehaviour
         // Change the sprite color to red
         SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.color = Color.red;
-
+        SoundEffectManager.Play("HitPlayer");
         // Wait for the flash duration
         yield return new WaitForSeconds(flashDuration);
 
@@ -215,5 +218,12 @@ public class MageController : MonoBehaviour
         yield return new WaitForSeconds(delay); // Wait for the specified delay
         SceneManager.LoadScene("GameOver"); // Load the Game Over scene
     }
-
+    private void Walk()
+    {
+        if ((Time.time - lastStepTime > stepSFXCooldown) && isGrounded)
+        {
+            SoundEffectManager.Play("Walk");
+            lastStepTime = Time.time;
+        }
+    }
 }

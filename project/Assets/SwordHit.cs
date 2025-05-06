@@ -26,5 +26,11 @@ public class SwordHit : MonoBehaviour
                 return;
             }
         }
+        else
+        {
+        // SoundEffectManager.Play("Attack");
+            
+        }
     }
+    
 }
