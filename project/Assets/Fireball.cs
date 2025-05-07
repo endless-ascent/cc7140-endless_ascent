@@ -6,6 +6,22 @@ public class Fireball : MonoBehaviour
 {
     public int strength = 34; // Damage dealt by the sword hitbox
 
+    public GameObject gameManager; // Reference to the GameManager object
+
+    void Start()
+    {
+        gameManager = GameObject.Find("GameManager"); // Find the GameManager object by name
+
+        if (gameManager != null)
+        {
+            GameManager gm = gameManager.GetComponent<GameManager>(); // Get the GameManager script
+            if (gm != null)
+            {
+                strength = gm.player_dmg; // Set the sword strength from the GameManager
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))

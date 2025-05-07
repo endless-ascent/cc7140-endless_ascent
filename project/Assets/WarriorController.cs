@@ -30,11 +30,24 @@ public class WarriorController : MonoBehaviour
 
     public float stepSFXCooldown = 0.4f; // Tempo entre sons de passos
     private float lastStepTime = -999f; // Último tempo em que o som foi tocado
+
+    public GameObject gameManager; // Reference to the GameManager object
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        gameManager = GameObject.Find("GameManager"); // Find the GameManager object by name
+
+        if (gameManager != null)
+        {
+            GameManager gm = gameManager.GetComponent<GameManager>(); // Get the GameManager script
+            if (gm != null)
+            {
+                health = gm.player_health; // Set the player's health from the GameManager
+            }
+        }
     }
 
     void Update()
@@ -164,7 +177,6 @@ public class WarriorController : MonoBehaviour
         {
             isDead = true; // Set the player as dead
             HandleAnimation(); // Trigger death animation
-            Destroy(gameObject, deathAnimationDuration); // Destroy the player after the death animation
 
             StartCoroutine(LoadGameOverScene(deathAnimationDuration)); // Load Game Over scene after delay
         }

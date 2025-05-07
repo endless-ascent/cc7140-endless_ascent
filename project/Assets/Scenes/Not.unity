@@ -60301,6 +60301,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitDoorOpened: {fileID: 282285158}
+  coins: 0
+  player_dmg: 10
+  player_health: 10
 --- !u!4 &789813097
 Transform:
   m_ObjectHideFlags: 0
@@ -60647,6 +60650,8 @@ MonoBehaviour:
   attackCooldown: 0.5
   fireballPrefab: {fileID: 556770660566793207, guid: 38603c903900f7b479238498789a69c6, type: 3}
   fireballSpeed: 3
+  stepSFXCooldown: 0.4
+  gameManager: {fileID: 0}
 --- !u!1 &1102333819
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2f9d43998824f8a42a6e8968c47c22e6
+guid: 1da402f4a264fe84fbcf53ae3783eb66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3343789744976749672
-    second: abstract-blue-flame-texture-s9lyzz8s6fwpvjaj_0
+      213: -3753825769889500098
+    second: sword_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: abstract-blue-flame-texture-s9lyzz8s6fwpvjaj_0
+      name: sword_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 297
-        height: 353
+        width: 1184
+        height: 1184
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 864eee09e07876e20800000000000000
-      internalID: 3343789744976749672
+      spriteID: e347705d95bb7ebc0800000000000000
+      internalID: -3753825769889500098
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      abstract-blue-flame-texture-s9lyzz8s6fwpvjaj_0: 3343789744976749672
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

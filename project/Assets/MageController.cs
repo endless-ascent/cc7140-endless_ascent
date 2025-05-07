@@ -34,11 +34,22 @@ public class MageController : MonoBehaviour
 
     public float stepSFXCooldown = 0.4f; // Delay sons de passos
     private float lastStepTime = -999f; 
+    public GameObject gameManager; // Reference to the GameManager object
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        gameManager = GameObject.Find("GameManager"); // Find the GameManager object by name
+
+        if (gameManager != null)
+        {
+            GameManager gm = gameManager.GetComponent<GameManager>(); // Get the GameManager script
+            if (gm != null)
+            {
+                health = gm.player_health; // Set the player's health from the GameManager
+            }
+        }
     }
 
     void Update()
@@ -173,7 +184,6 @@ public class MageController : MonoBehaviour
         {
             isDead = true; // Set the player as dead
             HandleAnimation(); // Trigger death animation
-            Destroy(gameObject, deathAnimationDuration); // Destroy the player after the death animation
 
             // start timeout call for game over screen
             StartCoroutine(LoadGameOverScene(deathAnimationDuration));
