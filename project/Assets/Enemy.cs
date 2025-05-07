@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     private MonoBehaviour aiMovementScript; // Reference to the AI movement script
     public AIPath aiPath;
     public float scale = 1f;
+    // coin prefab to spawn
+    public GameObject coinPrefab; // Assign in Unity Inspector
 
     void Start()
     {
@@ -77,6 +79,7 @@ public class Enemy : MonoBehaviour
             // Change animation controller to death controller
             animator.runtimeAnimatorController = deathController;
 
+            Instantiate(coinPrefab, transform.position, Quaternion.identity); // Spawn coin prefab
             // Destroy the enemy after the death animation duration
             Destroy(gameObject, deathAnimationDuration);
         }
@@ -119,13 +122,13 @@ public class Enemy : MonoBehaviour
         // Reference to the EnemySwordHitBox GameObject
         GameObject enemySwordHitBox = transform.Find("EnemySwordHitBox").gameObject;
 
-        // Wait for the first half of the attack animation
+        // Wait for the first 3/4 of the attack animation
         yield return new WaitForSeconds(attackAnimationDuration / 2);
 
         // Enable the EnemySwordHitBox
         enemySwordHitBox.SetActive(true);
 
-        // Wait for the second half of the attack animation
+        // Wait for the remaining 1/4 of the attack animation
         yield return new WaitForSeconds(attackAnimationDuration / 2);
 
         // Disable the EnemySwordHitBox

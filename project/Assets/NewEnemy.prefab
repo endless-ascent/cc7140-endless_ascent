@@ -406,6 +406,7 @@ MonoBehaviour:
   attackRange: 1
   aiPath: {fileID: 6450593769963065025}
   scale: 1.3
+  coinPrefab: {fileID: 883894289814821927, guid: 6239a71733e77544c931c50a62172786, type: 3}
 --- !u!1 &6973960313880477253
 GameObject:
   m_ObjectHideFlags: 0

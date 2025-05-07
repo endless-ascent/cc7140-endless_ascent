@@ -6,6 +6,7 @@ public class HealthBarUI : MonoBehaviour
 
     public float Health, MaxHealth, Width, Height; // Health, MaxHealth, Width, and Height variables
     public GameObject player; // Reference to the player GameObject
+    public GameObject gameManager; // Reference to the GameManager object
 
     [SerializeField]
     private RectTransform healthBar; // Reference to the health bar UI element
@@ -29,21 +30,15 @@ public class HealthBarUI : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player"); // Find the player GameObject by tag
         }
 
+        gameManager = GameObject.Find("GameManager"); // Find the GameManager object by name
+
         // get the player's health component and set the max health (can be MageController or WarriorController)
         if (player != null)
         {
-            MageController mageController = player.GetComponent<MageController>();
-            if (mageController != null)
+            GameManager gm = gameManager.GetComponent<GameManager>();
+            if (gm != null)
             {
-                SetMaxHealth(mageController.health); // Set the max health from the MageController
-            }
-            else
-            {
-                WarriorController warriorController = player.GetComponent<WarriorController>();
-                if (warriorController != null)
-                {
-                    SetMaxHealth(warriorController.health); // Set the max health from the WarriorController
-                }
+                SetMaxHealth(gm.player_health); // Set the max health from the WarriorController
             }
         }
     }

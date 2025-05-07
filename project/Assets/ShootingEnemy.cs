@@ -32,6 +32,8 @@ public class ShootingEnemy : MonoBehaviour
     public AIPath aiPath;
     public float scale = 1f;
 
+    // coin prefab to spawn
+    public GameObject coinPrefab; // Assign in Unity Inspector
     void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -86,7 +88,7 @@ public class ShootingEnemy : MonoBehaviour
         {
             // Change animation controller to death controller
             animator.runtimeAnimatorController = deathController;
-
+            Instantiate(coinPrefab, transform.position, Quaternion.identity); // Spawn coin prefab
             // Destroy the enemy after the death animation duration
             Destroy(gameObject, deathAnimationDuration);
         }

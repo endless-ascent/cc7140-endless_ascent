@@ -47,13 +47,23 @@ public class MageController : MonoBehaviour
             GameManager gm = gameManager.GetComponent<GameManager>(); // Get the GameManager script
             if (gm != null)
             {
-                health = gm.player_health; // Set the player's health from the GameManager
+                health = gm.player_current_health; // Set the player's health from the GameManager
             }
         }
     }
 
     void Update()
     {
+
+        if (gameManager != null)
+        {
+            GameManager gm = gameManager.GetComponent<GameManager>(); // Get the GameManager script
+            if (gm != null)
+            {
+                gm.player_current_health = health; // Set the player's health from the GameManager
+            }
+        }
+
         if (!isDead) // Only allow movement and actions if the player is not dead
         {
             if (!isAttacking) // Only allow movement and jumping if not attacking
@@ -107,7 +117,7 @@ public class MageController : MonoBehaviour
     private IEnumerator ResetIsGrounded()
     {
         // Wait for 1.5 seconds
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
 
         // Reset isGrounded to true
         isGrounded = true;
