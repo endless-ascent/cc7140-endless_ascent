@@ -27,7 +27,7 @@ public class GameOver : MonoBehaviour
         {
             gm.player_current_health = gm.player_health; // Reset current health to max health
         }
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Acampamento");
     }
 
     public void MainMenu() {

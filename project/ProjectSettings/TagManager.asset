@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - SwordHitBox
   - Enemy
@@ -13,7 +13,7 @@ TagManager:
   - Obstacle
   - Water
   - UI
-  - 
+  - BackBack
   - 
   - 
   - 
@@ -40,9 +40,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Backback
+    uniqueID: 397449293
+    locked: 0
   - name: Background
     uniqueID: 3870075075
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  m_RenderingLayers:
+  - Default
