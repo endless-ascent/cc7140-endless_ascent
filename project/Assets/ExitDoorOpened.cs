@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExitDoorOpened : MonoBehaviour
 {
-    public GameManager gameManager;
+    public DoorScript doorScript;
 
     void Start()
     {
@@ -15,7 +15,7 @@ public class ExitDoorOpened : MonoBehaviour
         // Check if the player enters the trigger
         if (collision.CompareTag("Player"))
         {
-            gameManager.GetComponent<GameManager>().SetPlayerInFrontOfExit(true);
+            doorScript.GetComponent<DoorScript>().SetPlayerInFrontOfExit(true);
         }
     }
 
@@ -24,7 +24,7 @@ public class ExitDoorOpened : MonoBehaviour
         // Check if the player exits the trigger
         if (collision.CompareTag("Player"))
         {
-            gameManager.GetComponent<GameManager>().SetPlayerInFrontOfExit(false);
+            doorScript.GetComponent<DoorScript>().SetPlayerInFrontOfExit(false);
         }
     }
 }

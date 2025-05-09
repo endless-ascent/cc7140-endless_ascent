@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; // Import the SceneManagement namespace
 
 public class MageController : MonoBehaviour
 {
@@ -31,14 +32,38 @@ public class MageController : MonoBehaviour
     public GameObject fireballPrefab; // Reference to the Fireball prefab
     public float fireballSpeed = 10f; // Speed of the fireball
 
+    public float stepSFXCooldown = 0.4f; // Delay sons de passos
+    private float lastStepTime = -999f; 
+    public GameObject gameManager; // Reference to the GameManager object
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        gameManager = GameObject.Find("GameManager"); // Find the GameManager object by name
+
+        if (gameManager != null)
+        {
+            GameManager gm = gameManager.GetComponent<GameManager>(); // Get the GameManager script
+            if (gm != null)
+            {
+                health = gm.player_current_health; // Set the player's health from the GameManager
+            }
+        }
     }
 
     void Update()
     {
+
+        if (gameManager != null)
+        {
+            GameManager gm = gameManager.GetComponent<GameManager>(); // Get the GameManager script
+            if (gm != null)
+            {
+                gm.player_current_health = health; // Set the player's health from the GameManager
+            }
+        }
+
         if (!isDead) // Only allow movement and actions if the player is not dead
         {
             if (!isAttacking) // Only allow movement and jumping if not attacking
@@ -64,8 +89,8 @@ public class MageController : MonoBehaviour
         // Move left or right
         if (horizontalInput != 0)
         {
-            rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
-
+            rb.linearVelocity = new Vector2(horizontalInput * moveSpeed, rb.linearVelocity.y);
+            Walk();
             // Flip the player sprite if moving left
             if (horizontalInput < 0)
                 transform.localScale = new Vector3(-scale, scale, scale);
@@ -75,13 +100,13 @@ public class MageController : MonoBehaviour
         else
         {
             // Stop horizontal movement when no key is pressed
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
 
         // Jump
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false;
 
             // Start a coroutine to reset isGrounded after 1.5 seconds
@@ -92,7 +117,7 @@ public class MageController : MonoBehaviour
     private IEnumerator ResetIsGrounded()
     {
         // Wait for 1.5 seconds
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
 
         // Reset isGrounded to true
         isGrounded = true;
@@ -108,7 +133,7 @@ public class MageController : MonoBehaviour
         {
             animator.runtimeAnimatorController = jumpController;
         }
-        else if (Mathf.Abs(rb.velocity.x) > 0.1f)
+        else if (Mathf.Abs(rb.linearVelocity.x) > 0.1f)
         {
             animator.runtimeAnimatorController = runController;
         }
@@ -122,7 +147,7 @@ public class MageController : MonoBehaviour
     {
         isAttacking = true; // Set attacking flag
         canAttack = false; // Disable attacking during cooldown
-        rb.velocity = Vector2.zero; // Stop player movement
+        rb.linearVelocity = Vector2.zero; // Stop player movement
         animator.runtimeAnimatorController = attackController; // Play attack animation
 
         // Wait for the first half of the attack animation
@@ -130,14 +155,14 @@ public class MageController : MonoBehaviour
 
         // Instantiate the fireball
         GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
-
+        SoundEffectManager.Play("Spell");
         // Set the fireball's direction and speed
         Rigidbody2D fireballRb = fireball.GetComponent<Rigidbody2D>();
         if (fireballRb != null)
         {
             // Determine the direction based on the Mage's facing direction
             float direction = transform.localScale.x > 0 ? 1f : -1f;
-            fireballRb.velocity = new Vector2(direction * fireballSpeed, 0f);
+            fireballRb.linearVelocity = new Vector2(direction * fireballSpeed, 0f);
 
             // Apply the direction to the fireball's scale
             fireball.transform.localScale = new Vector3(direction * -Mathf.Abs(fireball.transform.localScale.x), fireball.transform.localScale.y, fireball.transform.localScale.z);
@@ -169,7 +194,10 @@ public class MageController : MonoBehaviour
         {
             isDead = true; // Set the player as dead
             HandleAnimation(); // Trigger death animation
-            Destroy(gameObject, deathAnimationDuration); // Destroy the player after the death animation
+
+            // start timeout call for game over screen
+            StartCoroutine(LoadGameOverScene(deathAnimationDuration));
+            
         }
         else
         {
@@ -188,7 +216,7 @@ public class MageController : MonoBehaviour
         // Change the sprite color to red
         SpriteRenderer spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.color = Color.red;
-
+        SoundEffectManager.Play("HitPlayer");
         // Wait for the flash duration
         yield return new WaitForSeconds(flashDuration);
 
@@ -202,6 +230,20 @@ public class MageController : MonoBehaviour
         if (collision.contacts[0].normal.y > 0.5f)
         {
             isGrounded = true;
+        }
+    }
+
+    private IEnumerator LoadGameOverScene(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Wait for the specified delay
+        SceneManager.LoadScene("GameOver"); // Load the Game Over scene
+    }
+    private void Walk()
+    {
+        if ((Time.time - lastStepTime > stepSFXCooldown) && isGrounded)
+        {
+            SoundEffectManager.Play("Walk");
+            lastStepTime = Time.time;
         }
     }
 }

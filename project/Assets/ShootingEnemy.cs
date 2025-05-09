@@ -32,6 +32,8 @@ public class ShootingEnemy : MonoBehaviour
     public AIPath aiPath;
     public float scale = 1f;
 
+    // coin prefab to spawn
+    public GameObject coinPrefab; // Assign in Unity Inspector
     void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -43,6 +45,12 @@ public class ShootingEnemy : MonoBehaviour
 
     void Update()
     {
+
+        if (player == null || player.transform == null)
+        {
+            return; // Exit Update if player or its transform is null
+        }
+
         // Handle attack cooldown
         if (attackCooldownTimer > 0)
         {
@@ -80,7 +88,7 @@ public class ShootingEnemy : MonoBehaviour
         {
             // Change animation controller to death controller
             animator.runtimeAnimatorController = deathController;
-
+            Instantiate(coinPrefab, transform.position, Quaternion.identity); // Spawn coin prefab
             // Destroy the enemy after the death animation duration
             Destroy(gameObject, deathAnimationDuration);
         }
@@ -117,7 +125,7 @@ public class ShootingEnemy : MonoBehaviour
         if (aiMovementScript != null) aiMovementScript.enabled = false;
 
         // Stop Rigidbody2D movement
-        if (rb != null) rb.velocity = Vector2.zero;
+        if (rb != null) rb.linearVelocity = Vector2.zero;
 
         // Wait for the first half of the attack animation
         yield return new WaitForSeconds(attackAnimationDuration / 2);
@@ -131,7 +139,7 @@ public class ShootingEnemy : MonoBehaviour
         {
             // Determine the direction based on the enemy's facing direction
             float direction = transform.localScale.x > 0 ? 1f : -1f;
-            redBallRb.velocity = new Vector2(direction * ballSpeed, 0f);
+            redBallRb.linearVelocity = new Vector2(direction * ballSpeed, 0f);
 
             // Apply the direction to the red ball's scale
             redBall.transform.localScale = new Vector3(direction * Mathf.Abs(redBall.transform.localScale.x), redBall.transform.localScale.y, redBall.transform.localScale.z);

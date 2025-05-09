@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
     private MonoBehaviour aiMovementScript; // Reference to the AI movement script
     public AIPath aiPath;
     public float scale = 1f;
+    // coin prefab to spawn
+    public GameObject coinPrefab; // Assign in Unity Inspector
 
     void Start()
     {
@@ -41,6 +43,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+
+        if (player == null || player.transform == null)
+        {
+            return; // Exit Update if player or its transform is null
+        }
+
         if (!isAttacking && canAttack && Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             StartCoroutine(HandleAttack());
@@ -71,6 +79,7 @@ public class Enemy : MonoBehaviour
             // Change animation controller to death controller
             animator.runtimeAnimatorController = deathController;
 
+            Instantiate(coinPrefab, transform.position, Quaternion.identity); // Spawn coin prefab
             // Destroy the enemy after the death animation duration
             Destroy(gameObject, deathAnimationDuration);
         }
@@ -93,7 +102,7 @@ public class Enemy : MonoBehaviour
 
         // Wait for the flash duration
         yield return new WaitForSeconds(flashDuration);
-
+        SoundEffectManager.Play("HitEnemy");
         // Revert the sprite color to its original color
         spriteRenderer.color = Color.white;
     }
@@ -108,18 +117,18 @@ public class Enemy : MonoBehaviour
         if (aiMovementScript != null) aiMovementScript.enabled = false;
 
         // Stop Rigidbody2D movement
-        if (rb != null) rb.velocity = Vector2.zero;
+        if (rb != null) rb.linearVelocity = Vector2.zero;
 
         // Reference to the EnemySwordHitBox GameObject
         GameObject enemySwordHitBox = transform.Find("EnemySwordHitBox").gameObject;
 
-        // Wait for the first half of the attack animation
+        // Wait for the first 3/4 of the attack animation
         yield return new WaitForSeconds(attackAnimationDuration / 2);
 
         // Enable the EnemySwordHitBox
         enemySwordHitBox.SetActive(true);
 
-        // Wait for the second half of the attack animation
+        // Wait for the remaining 1/4 of the attack animation
         yield return new WaitForSeconds(attackAnimationDuration / 2);
 
         // Disable the EnemySwordHitBox

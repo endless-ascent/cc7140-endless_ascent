@@ -15,6 +15,7 @@ public class EnemySwordHitBox : MonoBehaviour
             if (mage != null)
             {
                 mage.LoseHealth(damage); // Call LoseHealth on the mage
+                // SoundEffectManager.Play("HitEnemy");
                 return;
             }
 
@@ -22,8 +23,11 @@ public class EnemySwordHitBox : MonoBehaviour
             WarriorController warrior = collision.GetComponent<WarriorController>();
             if (warrior != null)
             {
+                // SoundEffectManager.Play("HitEnemy");
                 warrior.LoseHealth(damage); // Call LoseHealth on the warrior
+                return;
             }
         }
+        SoundEffectManager.Play("Attack");
     }
 }
