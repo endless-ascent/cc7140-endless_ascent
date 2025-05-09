@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: c731ee590f4eb184b8ccdd30428a7ac3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6286558998653407497
+    second: 2D Medieval Castle Dungeon Tileset Assets_0
+  - first:
+      213: 5604772634320724321
+    second: 2D Medieval Castle Dungeon Tileset Assets_1
+  - first:
+      213: -361069721831147085
+    second: 2D Medieval Castle Dungeon Tileset Assets_2
+  - first:
+      213: -7194908192469357254
+    second: 2D Medieval Castle Dungeon Tileset Assets_3
+  - first:
+      213: -5822249132188124403
+    second: 2D Medieval Castle Dungeon Tileset Assets_4
+  - first:
+      213: 3954242394458030243
+    second: 2D Medieval Castle Dungeon Tileset Assets_5
+  - first:
+      213: 1487872147297531189
+    second: 2D Medieval Castle Dungeon Tileset Assets_6
+  - first:
+      213: -1160517996590619070
+    second: 2D Medieval Castle Dungeon Tileset Assets_7
+  - first:
+      213: -1880782628983946678
+    second: 2D Medieval Castle Dungeon Tileset Assets_8
+  - first:
+      213: 3342402313682143815
+    second: 2D Medieval Castle Dungeon Tileset Assets_9
+  - first:
+      213: -8528055378756416318
+    second: 2D Medieval Castle Dungeon Tileset Assets_10
+  - first:
+      213: 8296013989650199336
+    second: 2D Medieval Castle Dungeon Tileset Assets_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 149
+        width: 36
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90195460a185e3750800000000000000
+      internalID: 6286558998653407497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 149
+        width: 36
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 161648bf30728cd40800000000000000
+      internalID: 5604772634320724321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 149
+        width: 36
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b9fa1340093dfaf0800000000000000
+      internalID: -361069721831147085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_3
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 149
+        width: 36
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3de0548e1d862c90800000000000000
+      internalID: -7194908192469357254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_4
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 161
+        width: 130
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0bb91a0347333fa0800000000000000
+      internalID: -5822249132188124403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 44
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a0067dd18a40e630800000000000000
+      internalID: 3954242394458030243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_6
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 49
+        width: 46
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 535fddab5dbf5a410800000000000000
+      internalID: 1487872147297531189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_7
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 86
+        width: 33
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 246a4c1e70305efe0800000000000000
+      internalID: -1160517996590619070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_8
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 92
+        width: 130
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a42cfabe92e16e5e0800000000000000
+      internalID: -1880782628983946678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_9
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 38
+        width: 130
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74ac77b0239926e20800000000000000
+      internalID: 3342402313682143815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_10
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 11
+        width: 130
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc4d5c01d246a980800000000000000
+      internalID: -8528055378756416318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2D Medieval Castle Dungeon Tileset Assets_11
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 12
+        width: 142
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82375c8f4cc512370800000000000000
+      internalID: 8296013989650199336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 08339e2febec8fe4aa0a73a4437a8d72
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      2D Medieval Castle Dungeon Tileset Assets_0: 6286558998653407497
+      2D Medieval Castle Dungeon Tileset Assets_1: 5604772634320724321
+      2D Medieval Castle Dungeon Tileset Assets_10: -8528055378756416318
+      2D Medieval Castle Dungeon Tileset Assets_11: 8296013989650199336
+      2D Medieval Castle Dungeon Tileset Assets_2: -361069721831147085
+      2D Medieval Castle Dungeon Tileset Assets_3: -7194908192469357254
+      2D Medieval Castle Dungeon Tileset Assets_4: -5822249132188124403
+      2D Medieval Castle Dungeon Tileset Assets_5: 3954242394458030243
+      2D Medieval Castle Dungeon Tileset Assets_6: 1487872147297531189
+      2D Medieval Castle Dungeon Tileset Assets_7: -1160517996590619070
+      2D Medieval Castle Dungeon Tileset Assets_8: -1880782628983946678
+      2D Medieval Castle Dungeon Tileset Assets_9: 3342402313682143815
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -23,6 +23,23 @@ public class MainMenu : MonoBehaviour
     }
 
     public void PlayGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Acampamento");
+    }
+
+    public void Instructions() {
+        SceneManager.LoadScene("Instructions");
+    }
+
+    public void Credits() {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void QuitGame() {
+        Application.Quit();
+        Debug.Log("QUIT!");
+    }
+
+    public void BackToMenu() {
+        SceneManager.LoadScene("MainMenu");
     }
 }

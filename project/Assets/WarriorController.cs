@@ -32,6 +32,7 @@ public class WarriorController : MonoBehaviour
     private float lastStepTime = -999f; // Último tempo em que o som foi tocado
 
     public GameObject gameManager; // Reference to the GameManager object
+    public bool disableClickInput = false; // Flag to disable click input
     
     void Start()
     {
@@ -52,13 +53,16 @@ public class WarriorController : MonoBehaviour
 
     void Update()
     {
-
         if (gameManager != null)
         {
             GameManager gm = gameManager.GetComponent<GameManager>(); // Get the GameManager script
             if (gm != null)
             {
-                gm.player_current_health = health; // Set the player's health from the GameManager
+                if (SceneManager.GetActiveScene().name == "Acampamento")
+                {
+                    health = gm.player_health; // Set the player's health from the GameManager
+                }
+                gm.player_current_health = health; // Update the GameManager with the player's current health
             }
         }
 
@@ -69,7 +73,7 @@ public class WarriorController : MonoBehaviour
                 HandleMovement();
             }
 
-            if (canAttack && Input.GetMouseButtonDown(0)) // MouseButton1 (left mouse button)
+            if (canAttack && Input.GetMouseButtonDown(0) && !disableClickInput) // MouseButton1 (left mouse button)
             {
                 StartCoroutine(HandleAttack());
             }
@@ -239,6 +243,15 @@ public class WarriorController : MonoBehaviour
             SoundEffectManager.Play("Walk");
             lastStepTime = Time.time;
         }
+    }
+
+    public void DisableClickInput()
+    {
+        disableClickInput = true; // Disable click input
+    }
+    public void EnableClickInput()
+    {
+        disableClickInput = false; // Enable click input
     }
 
 }

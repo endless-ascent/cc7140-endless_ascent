@@ -30,11 +30,13 @@ public class MageController : MonoBehaviour
     public float attackCooldown = 0.5f; // Cooldown duration between attacks
 
     public GameObject fireballPrefab; // Reference to the Fireball prefab
+    public GameObject fireballNoLight;
     public float fireballSpeed = 10f; // Speed of the fireball
 
     public float stepSFXCooldown = 0.4f; // Delay sons de passos
     private float lastStepTime = -999f; 
     public GameObject gameManager; // Reference to the GameManager object
+    public bool disableClickInput = false; // Flag to disable click input
     
     void Start()
     {
@@ -60,7 +62,11 @@ public class MageController : MonoBehaviour
             GameManager gm = gameManager.GetComponent<GameManager>(); // Get the GameManager script
             if (gm != null)
             {
-                gm.player_current_health = health; // Set the player's health from the GameManager
+                if (SceneManager.GetActiveScene().name == "Acampamento")
+                {
+                    health = gm.player_health; // Set the player's health from the GameManager
+                }
+                gm.player_current_health = health; // Update the GameManager with the player's current health
             }
         }
 
@@ -71,7 +77,7 @@ public class MageController : MonoBehaviour
                 HandleMovement();
             }
 
-            if (canAttack && Input.GetMouseButtonDown(0)) // MouseButton1 (left mouse button)
+            if (canAttack && Input.GetMouseButtonDown(0) && !disableClickInput) 
             {
                 StartCoroutine(HandleAttack());
             }
@@ -153,8 +159,16 @@ public class MageController : MonoBehaviour
         // Wait for the first half of the attack animation
         yield return new WaitForSeconds(attackAnimationDuration / 2);
 
-        // Instantiate the fireball
-        GameObject fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
+        // Instantiate the appropriate fireball based on the scene name
+        GameObject fireball;
+        if (SceneManager.GetActiveScene().name == "Acampamento")
+        {
+            fireball = Instantiate(fireballNoLight, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            fireball = Instantiate(fireballPrefab, transform.position, Quaternion.identity);
+        }
         SoundEffectManager.Play("Spell");
         // Set the fireball's direction and speed
         Rigidbody2D fireballRb = fireball.GetComponent<Rigidbody2D>();
@@ -245,5 +259,14 @@ public class MageController : MonoBehaviour
             SoundEffectManager.Play("Walk");
             lastStepTime = Time.time;
         }
+    }
+
+    public void DisableClickInput()
+    {
+        disableClickInput = true; // Disable click input
+    }
+    public void EnableClickInput()
+    {
+        disableClickInput = false; // Enable click input
     }
 }

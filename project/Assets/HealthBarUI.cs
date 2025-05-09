@@ -45,6 +45,17 @@ public class HealthBarUI : MonoBehaviour
         
     void Update()
     {
+
+        // get the player's health component and set the max health (can be MageController or WarriorController)
+        if (player != null)
+        {
+            GameManager gm = gameManager.GetComponent<GameManager>();
+            if (gm != null)
+            {
+                SetMaxHealth(gm.player_health); // Set the max health from the WarriorController
+            }
+        }
+
         if (player != null) // Check if the player reference is set
         {
             MageController mageController = player.GetComponent<MageController>();
