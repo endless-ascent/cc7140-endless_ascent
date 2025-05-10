@@ -187,7 +187,7 @@ public class WarriorController : MonoBehaviour
         {
             isDead = true; // Set the player as dead
             HandleAnimation(); // Trigger death animation
-
+            FindObjectOfType<AudioManager>().StopMusic();
             StartCoroutine(LoadGameOverScene(deathAnimationDuration)); // Load Game Over scene after delay
         }
         else
