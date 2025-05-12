@@ -41,6 +41,20 @@ public class SwordHit : MonoBehaviour
                 shootingEnemy.LoseHealth(strength); // Call LoseHealth on the shooting enemy
                 return;
             }
+
+            Crystal crystal = collision.GetComponent<Crystal>();
+            if (crystal != null)
+            {
+                crystal.LoseHealth(1);
+                return;
+            }
+
+            CrystalTrap trap = collision.GetComponent<CrystalTrap>();
+            if (trap != null){
+
+                trap.LoseHealth(1);
+                return;
+            }
         }
         else
         {

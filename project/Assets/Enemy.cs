@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     private bool isAttacking = false; // Flag to check if the enemy is currently attacking
     private bool canAttack = true; // Cooldown flag for attacking
     private Transform player; // Reference to the player
+    
     public float attackRange = 1.5f; // Range within which the enemy can attack
 
     private Rigidbody2D rb; // Reference to the Rigidbody2D component
