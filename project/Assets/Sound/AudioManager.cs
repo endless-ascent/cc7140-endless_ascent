@@ -11,13 +11,25 @@ public class AudioManager : MonoBehaviour
 
     private bool player_alive = true;
     private bool isTransitioning = false;
-    public float fadeDuration = 2f;
-    public float transitionStartTime = 5f;
-
+    public float fadeDuration = 6f;
+    public float transitionStartTime = 8f;
+    
+    
+    public static AudioManager Instance; 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
+
 
     private void Start()
     {
