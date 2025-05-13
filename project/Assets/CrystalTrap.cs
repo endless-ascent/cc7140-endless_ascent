@@ -20,8 +20,12 @@ public class CrystalTrap : MonoBehaviour
             if (player != null)
             {
                 WarriorController controller = player.GetComponent<WarriorController>();
+                WarriorController controllerm = collision.gameObject.GetComponent<MageController>();
                 if (controller != null)
                     controller.LoseHealth(damageToPlayer);
+                if(controllerm != null){
+                    controllerm.LoseHealth(damageToPlayer);
+                }
             }
 
             Destroy(gameObject);

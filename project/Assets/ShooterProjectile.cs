@@ -17,9 +17,13 @@ public class ShooterProjectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             WarriorController player = collision.gameObject.GetComponent<WarriorController>();
+            WarriorController player1 = collision.gameObject.GetComponent<MageController>();
             if (player != null)
             {
                 player.LoseHealth(damage);
+            }
+            if (player11 != null){
+                player1.LoseHealth(damage);
             }
             Destroy(gameObject);
         }

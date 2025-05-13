@@ -46,6 +46,20 @@ public class Fireball : MonoBehaviour
                 Destroy(gameObject);
                 return;
             }
+
+            Crystal crystal = collision.GetComponent<Crystal>();
+            if (crystal != null)
+            {
+                crystal.LoseHealth(1);
+                return;
+            }
+
+            CrystalTrap trap = collision.GetComponent<CrystalTrap>();
+            if (trap != null){
+
+                trap.LoseHealth(1);
+                return;
+            }
         }
         else if (!collision.CompareTag("Player"))
         {
