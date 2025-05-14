@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public int times_on_acampamento = 0; // Variable to count the number of times the player has been on the "Acampamento" scene
     public GameObject firstDialogue; // Reference to the first dialogue GameObject
     public GameObject secondDialogue; // Reference to the second dialogue GameObject
+    public GameObject fragmentoDialogue;
     public bool isMageUnlocked = false; // Variable to check if the Mage class is unlocked
     void Start()
     {
@@ -87,14 +88,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void BuyHealth() // Method to buy health
     {
-        if (coins >= 8) // Check if the player has enough coins
+        if (coins >= 6) // Check if the player has enough coins
         {
-            coins -= 8; // Deduct the cost from the coins
+            coins -= 6; // Deduct the cost from the coins
             player_health += 33; // Increase the player's maximum health
             Debug.Log("Health bought!"); // Log the purchase
 
@@ -112,24 +112,24 @@ public class GameManager : MonoBehaviour
 
             if (warriorController != null)
             {
-                if (warriorController.health + 40 > player_health) // Check if adding 40 exceeds the maximum health
+                if (warriorController.health + 50 > player_health) // Check if adding 40 exceeds the maximum health
                 {
                     warriorController.health = player_health; // Set the Warrior's current health to the maximum health
                 }
                 else
                 {
-                    warriorController.health += 40; // Increase the Warrior's current health
+                    warriorController.health += 50; // Increase the Warrior's current health
                 }
             }
             else if (mageController != null)
             {
-                if (mageController.health + 40 > player_health) // Check if adding 40 exceeds the maximum health
+                if (mageController.health + 50 > player_health) // Check if adding 40 exceeds the maximum health
                 {
                     mageController.health = player_health; // Set the Mage's current health to the maximum health
                 }
                 else
                 {
-                    mageController.health += 40; // Increase the Mage's current health
+                    mageController.health += 50; // Increase the Mage's current health
                 }
             }
         }
@@ -141,9 +141,9 @@ public class GameManager : MonoBehaviour
 
     public void BuyDamage() // Method to buy damage
     {
-        if (coins >= 10) // Check if the player has enough coins
+        if (coins >= 8) // Check if the player has enough coins
         {
-            coins -= 10; // Deduct the cost from the coins
+            coins -= 8; // Deduct the cost from the coins
             player_dmg += 30; // Increase the player's damage
             Debug.Log("Damage bought!"); // Log the purchase
 

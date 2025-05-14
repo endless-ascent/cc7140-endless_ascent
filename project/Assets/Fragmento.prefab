@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8253192575627356972}
   m_Layer: 0
   m_Name: Fragmento
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,3 +176,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  fragmentoDialogue: {fileID: 6390745374438803520, guid: 8100c9277b46497458a69f92b24774a4, type: 3}

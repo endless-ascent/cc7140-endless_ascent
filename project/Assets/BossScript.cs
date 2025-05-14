@@ -186,16 +186,6 @@ public class BossScript : MonoBehaviour
         {
             animator.runtimeAnimatorController = deathController;
 
-            GameObject gameManager = GameObject.Find("GameManager");
-            if (gameManager != null)
-            {
-                GameManager gm = gameManager.GetComponent<GameManager>();
-                if (gm != null)
-                {
-                    gm.isMageUnlocked = true;
-                }
-            }
-
             Vector2 fragmentoPosition = new Vector2(transform.position.x, transform.position.y + 2f);
             GameObject fragment = Instantiate(fragmentoPrefab, fragmentoPosition, Quaternion.identity);
 
