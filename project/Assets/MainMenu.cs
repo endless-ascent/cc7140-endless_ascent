@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
     }
 
     public void PlayGame() {
-        SceneManager.LoadScene("Acampamento");
+        SceneManager.LoadScene("MainStory");
     }
 
     public void Instructions() {

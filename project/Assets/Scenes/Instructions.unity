@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -252,15 +252,15 @@ RectTransform:
   m_GameObject: {fileID: 659683534}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.3, y: 3.13, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.24, y: 2.1246061, z: 0.6787879}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 745082956}
   m_Father: {fileID: 1974976401}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -218}
+  m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: 136.5, y: 24.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659683536
@@ -384,14 +384,14 @@ RectTransform:
   m_GameObject: {fileID: 737387590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.81, y: 0.81, z: 0.81}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 73843408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.4095, y: 114}
+  m_AnchoredPosition: {x: 2.4095, y: 89}
   m_SizeDelta: {x: 801.7776, y: 134.0321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &737387592
@@ -415,20 +415,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Desafie a torre, derrote os inimigos e recupere os fragmentos de idioma
-    derrotando os Deuses. Insista!
-
+    derrotando os Deuses. Aprimore seus atributos apos cada tentativa e tente ir
+    cada vez mais longe.
 
     W/A/S/D - Movimentar Personagem
 
-    SpaceBar
-    - Pular
+    SpaceBar - Pular
 
-    Mouse 1 - Ataque
+    Mouse
+    1 - Ataque
 
     F - Interagir
 
-    Use o Mouse para Interagir
-    com a Interface
+    Use o Mouse para Interagir com a Interface
 
 '
   m_isRightToLeft: 0
@@ -672,14 +671,14 @@ RectTransform:
   m_GameObject: {fileID: 871360328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 73843408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.4095, y: 249}
+  m_AnchoredPosition: {x: 2.4095, y: 190.7}
   m_SizeDelta: {x: 801.7776, y: 134.0321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871360330
@@ -945,14 +944,14 @@ RectTransform:
   m_GameObject: {fileID: 1691519060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 73843408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 11}
+  m_AnchoredPosition: {x: 0, y: 5.330017}
   m_SizeDelta: {x: 845.4, y: 360.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1691519062

@@ -15,26 +15,71 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: c6160f2ea2fc9d541b6887a6686e1608
   - enabled: 1
+    path: Assets/Scenes/MainStory.unity
+    guid: 97eced7f74faf0e4ca09e07562b08eb0
+  - enabled: 1
     path: Assets/Scenes/Acampamento.unity
     guid: ce0f9311be783f14aa142f783e55cb98
   - enabled: 1
-    path: Assets/Scenes/Level1_old.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Level1.unity
+    guid: 6d8479eaf2e97384fa9355d7ce5f49de
   - enabled: 1
-    path: Assets/Scenes/Level2_old.unity
-    guid: 880a29bb3d2546444bd7ca52279010f9
+    path: Assets/Scenes/Level2.unity
+    guid: 64ab438f13607d34dbfdc58ef5f8c79f
   - enabled: 1
-    path: Assets/Scenes/Level3_old.unity
-    guid: 7ee069e7fa5451e4e968174c96d6d642
+    path: Assets/Scenes/Level3.unity
+    guid: b776b337086a613408936f9ec83d311c
   - enabled: 1
-    path: Assets/Scenes/LevelEspecial.unity
+    path: Assets/Scenes/LevelEspecial1.unity
     guid: 1d3e838b71774dd49af75bcd53acf9d8
   - enabled: 1
-    path: Assets/Scenes/Level4_old.unity
-    guid: c7dfdd34a6eefdb4ba4bf7c8535f9ef4
+    path: Assets/Scenes/Level4.unity
+    guid: 1048f771ecbefeb47954d8eeac072fc1
   - enabled: 1
-    path: Assets/Scenes/Level5_old.unity
-    guid: b33200674dfb23a4195eb8300f3ef031
+    path: Assets/Scenes/Level5.unity
+    guid: d65be6c8cf1b4054b9f78f0a01db83e5
+  - enabled: 1
+    path: Assets/Scenes/Level6.unity
+    guid: 0b8b0f60c45b1fc4e99373739011e585
+  - enabled: 1
+    path: Assets/Scenes/LevelEspecial2.unity
+    guid: c1f2dd9c14e1b4d4483d75d281a65ecf
+  - enabled: 1
+    path: Assets/Scenes/Level7.unity
+    guid: ee7b4a857d7a1d14d92005af6e5719b4
+  - enabled: 1
+    path: Assets/Scenes/Level8.unity
+    guid: 0e5923e107dd5f743864942e0dc20c25
+  - enabled: 1
+    path: Assets/Scenes/Level9.unity
+    guid: 8b21dee4cf6b5de4e984daedcddcbe97
+  - enabled: 1
+    path: Assets/Scenes/LevelEspecial3.unity
+    guid: 59ae8460ac9d8ed4babb658e18c2772a
+  - enabled: 1
+    path: Assets/Scenes/Level10.unity
+    guid: ada4578552f364748b9f3afb510a9341
+  - enabled: 1
+    path: Assets/Scenes/Level11.unity
+    guid: 11dbf1fb9357e4c4c8c1f334a764bfd9
+  - enabled: 1
+    path: Assets/Scenes/Level12.unity
+    guid: bd926119af222524fababc2226b0666e
+  - enabled: 1
+    path: Assets/Scenes/LevelEspecial4.unity
+    guid: 7d607b3cb5ce4364a87ac4441119fee0
+  - enabled: 1
+    path: Assets/Scenes/Level13.unity
+    guid: 27bfbb3c0a9a1cc4aa8e82f746bcaee6
+  - enabled: 1
+    path: Assets/Scenes/Level14.unity
+    guid: 376b08138f534354cb7e3911a8b3d9a0
+  - enabled: 1
+    path: Assets/Scenes/Boss1.unity
+    guid: e3ba405e9bb66444fbf9d00319ac7783
+  - enabled: 1
+    path: Assets/Scenes/FinalCutscene.unity
+    guid: 3592a11d01bc91f4e90d56b456ff865f
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 43c8a453a8c10ea44ae619404bf2a706

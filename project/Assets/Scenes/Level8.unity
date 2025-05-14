@@ -215,9 +215,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 278896463395405811, guid: 01188ed7a883e8f4aa098fb7d9a727b2, type: 3}
+      propertyPath: health
+      value: 199
+      objectReference: {fileID: 0}
+    - target: {fileID: 278896463395405811, guid: 01188ed7a883e8f4aa098fb7d9a727b2, type: 3}
       propertyPath: coinPrefab
       value: 
       objectReference: {fileID: 883894289814821927, guid: 6239a71733e77544c931c50a62172786, type: 3}
+    - target: {fileID: 3663269096360508117, guid: 01188ed7a883e8f4aa098fb7d9a727b2, type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3875569324443599592, guid: 01188ed7a883e8f4aa098fb7d9a727b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.165045
@@ -439,6 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorScript: {fileID: 1552392743}
+  F_UI: {fileID: 2070824709}
 --- !u!61 &282285163
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65815,6 +65824,52 @@ Transform:
   - {fileID: 282285159}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &815653804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 815653806}
+  - component: {fileID: 815653805}
+  m_Layer: 0
+  m_Name: TargetManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &815653805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815653804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85299d7d228d6d4d9011a765d02b7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+  indicatorPrefab: {fileID: 3306134767537573456, guid: a2965400a9af01c42b2b0bdcef0685f6, type: 3}
+--- !u!4 &815653806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815653804}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44.91515, y: 17.20924, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1087891615
 GameObject:
   m_ObjectHideFlags: 0
@@ -69299,9 +69354,17 @@ PrefabInstance:
       value: ShootingEnemy (2)
       objectReference: {fileID: 0}
     - target: {fileID: 2689062600114822325, guid: 7be7a0a01e86a5846aaa475b5a44322b, type: 3}
+      propertyPath: health
+      value: 199
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689062600114822325, guid: 7be7a0a01e86a5846aaa475b5a44322b, type: 3}
       propertyPath: coinPrefab
       value: 
       objectReference: {fileID: 883894289814821927, guid: 6239a71733e77544c931c50a62172786, type: 3}
+    - target: {fileID: 2689062600114822325, guid: 7be7a0a01e86a5846aaa475b5a44322b, type: 3}
+      propertyPath: redBallPrefab
+      value: 
+      objectReference: {fileID: 6179684330920501644, guid: 6e7a2f67f40b47c40a2d076ef4287bb2, type: 3}
     - target: {fileID: 7457289086122554769, guid: 7be7a0a01e86a5846aaa475b5a44322b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 19.828
@@ -69527,6 +69590,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 386040095965348777, guid: 1d09e792ff13a0c4baba962c3c641ffd, type: 3}
+      propertyPath: health
+      value: 199
+      objectReference: {fileID: 0}
+    - target: {fileID: 386040095965348777, guid: 1d09e792ff13a0c4baba962c3c641ffd, type: 3}
       propertyPath: coinPrefab
       value: 
       objectReference: {fileID: 883894289814821927, guid: 6239a71733e77544c931c50a62172786, type: 3}
@@ -69574,6 +69641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7272163494604957354, guid: 1d09e792ff13a0c4baba962c3c641ffd, type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -69613,7 +69684,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -69717,7 +69788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2298477925952974136, guid: 279758518f1e4804381548899981f0be, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -69912,6 +69983,10 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7760376954245679506, guid: 36819706758dc95499c9743bf0007f45, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8859511913640215546, guid: 36819706758dc95499c9743bf0007f45, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 71.6
@@ -69925,6 +70000,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36819706758dc95499c9743bf0007f45, type: 3}
+--- !u!1 &2070824709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7760376954245679506, guid: 36819706758dc95499c9743bf0007f45, type: 3}
+  m_PrefabInstance: {fileID: 2070824708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &2074718438
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -70056,9 +70136,17 @@ PrefabInstance:
       value: ShootingEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 2689062600114822325, guid: 7be7a0a01e86a5846aaa475b5a44322b, type: 3}
+      propertyPath: health
+      value: 199
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689062600114822325, guid: 7be7a0a01e86a5846aaa475b5a44322b, type: 3}
       propertyPath: coinPrefab
       value: 
       objectReference: {fileID: 883894289814821927, guid: 6239a71733e77544c931c50a62172786, type: 3}
+    - target: {fileID: 2689062600114822325, guid: 7be7a0a01e86a5846aaa475b5a44322b, type: 3}
+      propertyPath: redBallPrefab
+      value: 
+      objectReference: {fileID: 6179684330920501644, guid: 6e7a2f67f40b47c40a2d076ef4287bb2, type: 3}
     - target: {fileID: 7457289086122554769, guid: 7be7a0a01e86a5846aaa475b5a44322b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.972
@@ -70113,9 +70201,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 278896463395405811, guid: 01188ed7a883e8f4aa098fb7d9a727b2, type: 3}
+      propertyPath: health
+      value: 199
+      objectReference: {fileID: 0}
+    - target: {fileID: 278896463395405811, guid: 01188ed7a883e8f4aa098fb7d9a727b2, type: 3}
       propertyPath: coinPrefab
       value: 
       objectReference: {fileID: 883894289814821927, guid: 6239a71733e77544c931c50a62172786, type: 3}
+    - target: {fileID: 3663269096360508117, guid: 01188ed7a883e8f4aa098fb7d9a727b2, type: 3}
+      propertyPath: damage
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3875569324443599592, guid: 01188ed7a883e8f4aa098fb7d9a727b2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.408
@@ -70171,6 +70267,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 49095535}
   - {fileID: 734302099}
+  - {fileID: 638397600}
+  - {fileID: 1949686087}
   - {fileID: 1795273961395237270}
   - {fileID: 3154068049279928636}
   - {fileID: 285656655}
@@ -70179,6 +70277,5 @@ SceneRoots:
   - {fileID: 1148726269}
   - {fileID: 1886487922}
   - {fileID: 232943476}
-  - {fileID: 638397600}
-  - {fileID: 1949686087}
   - {fileID: 2070824708}
+  - {fileID: 815653806}

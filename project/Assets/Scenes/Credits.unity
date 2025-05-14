@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -252,15 +252,15 @@ RectTransform:
   m_GameObject: {fileID: 659683534}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.3, y: 3.13, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.93, y: 1.8305758, z: 0.58484846}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 745082956}
   m_Father: {fileID: 1974976401}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -218}
+  m_AnchoredPosition: {x: 0, y: -189.4}
   m_SizeDelta: {x: 136.5, y: 24.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &659683536
@@ -384,14 +384,14 @@ RectTransform:
   m_GameObject: {fileID: 737387590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 73843408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.4095, y: 114}
+  m_AnchoredPosition: {x: 2.4095, y: 110.3}
   m_SizeDelta: {x: 801.7776, y: 134.0321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &737387592
@@ -414,7 +414,66 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Inserir aqui autores dos sprites, tilesets, efeitos sonoros, etc.
+  m_text: 'Assets lists
+
+    - The Old Windmill - Game Tileset (https://ludicarts.itch.io/the-old-windmill-game-tileset)
+
+    -
+    Gothic/Haunted Castle Tileset - 32x32 (https://midnitepixelated.itch.io/new-gothichaunted-castle-tileset-32x32)
+
+    -
+    Free Pixel Art Tileset - Gentle Forest (https://seliel-the-shaper.itch.io/gentle-forest/)
+
+    -
+    Lil'' Dragon - Pixel Art Top-Down Tileset (https://raou.itch.io/lil-dragon)
+
+    -
+    Paid RPG Pixel Art Assets 2 (https://edslashem.itch.io/rpg-asset-pack-2/)
+
+    -
+    Relaxing Ocean SFX - Audio Asset Pack (https://squishisprite.itch.io/ocean-sfx/)
+
+    -
+    PLATFORMER/METROIDVANIA ASSET PACK (https://o-lobster.itch.io/platformmetroidvania-pixel-art-asset-pack)
+
+    -
+    Heroic Asset Series: Creature Pack (https://iknowkingrabbit.itch.io/heroic-creature-pack/)
+
+    -
+    Heroic Asset Series: Icon Pack (https://iknowkingrabbit.itch.io/heroic-icon-pack)
+
+    -
+    Heroic Asset Series: Overworld (https://iknowkingrabbit.itch.io/heroic-overworld/)
+
+    -
+    HUGE pixelart asset pack (https://samvieten.itch.io/huge-pixelart-asset-pack/)
+
+    -
+    Kenney Game Assets 1 (https://kenney.itch.io/kenney-game-assets-1)
+
+    - Lava
+    Caves - Fantasy Pixel Art Tileset (https://aamatniekss.itch.io/lava-caves-tileset)
+
+    -
+    TDRPG - Interior - Pixel Art Top-Down Tileset (https://raou.itch.io/top-down-interior-tileset)
+
+    -
+    Multi Platformer Tileset (https://shackhal.itch.io/multi-platformer-tileset)
+
+    -
+    Generic dungeon pack (https://bakudas.itch.io/generic-dungeon-pack)
+
+    - GothicVania
+    Church Pack (https://assetstore.unity.com/packages/2d/characters/gothicvania-church-pack-147117)
+
+    -
+    GothicVania Town (https://assetstore.unity.com/packages/2d/characters/gothicvania-town-101407)
+
+    -
+    Free Audio Asset Collection (https://nihil-existentia.itch.io/free-audio-asset-collection)
+
+    -
+    SciFi-CultistsPack (https://assetstore.unity.com/packages/2d/environments/scifi-cultistspack-211371)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 989c3da4829586d4fbd552fe5147067e, type: 2}
   m_sharedMaterial: {fileID: -2851341189219951194, guid: 989c3da4829586d4fbd552fe5147067e, type: 2}
@@ -441,8 +500,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.5
-  m_fontSizeBase: 36.5
+  m_fontSize: 15.39
+  m_fontSizeBase: 15.39
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -656,14 +715,14 @@ RectTransform:
   m_GameObject: {fileID: 871360328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.67, y: 0.67, z: 0.67}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 73843408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.4095, y: 249}
+  m_AnchoredPosition: {x: 2.4095, y: 187.9}
   m_SizeDelta: {x: 801.7776, y: 134.0321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871360330
@@ -713,8 +772,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 125.1
-  m_fontSizeBase: 125.1
+  m_fontSize: 84.1
+  m_fontSizeBase: 84.1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -929,15 +988,15 @@ RectTransform:
   m_GameObject: {fileID: 1691519060}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.82, y: 0.82, z: 0.82}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 73843408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 11}
-  m_SizeDelta: {x: 845.4, y: 360.3}
+  m_AnchoredPosition: {x: 0, y: 6.6}
+  m_SizeDelta: {x: 743.5, y: 404.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1691519062
 MonoBehaviour:

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     public int coins = 0; // Variable to store the number of coins
+    public int fragmentos = 0; // Variable to store the number of fragments
     public int player_dmg = 10; // Variable to store the player's damage
     public int player_health = 10; // Variable to store the player's health
     public int player_current_health = 10; // Variable to store the player's current health
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     public int times_on_acampamento = 0; // Variable to count the number of times the player has been on the "Acampamento" scene
     public GameObject firstDialogue; // Reference to the first dialogue GameObject
     public GameObject secondDialogue; // Reference to the second dialogue GameObject
+    public bool isMageUnlocked = false; // Variable to check if the Mage class is unlocked
     void Start()
     {
         player_health_before_buff = player_health;
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
 
         if (scene.name == "Acampamento") // Check if the scene is "Acampamento" and it's the first time
         {
+            fragmentos = 0; // Reset the number of fragments
             firstDialogue = GameObject.Find("FirstDialogue"); // Find the first dialogue GameObject by name
             firstDialogue.SetActive(false); // Deactivate the first dialogue GameObject
 
@@ -89,10 +92,10 @@ public class GameManager : MonoBehaviour
 
     public void BuyHealth() // Method to buy health
     {
-        if (coins >= 10) // Check if the player has enough coins
+        if (coins >= 8) // Check if the player has enough coins
         {
-            coins -= 10; // Deduct the cost from the coins
-            player_health += 20; // Increase the player's maximum health
+            coins -= 8; // Deduct the cost from the coins
+            player_health += 33; // Increase the player's maximum health
             Debug.Log("Health bought!"); // Log the purchase
 
             player_health_before_buff = player_health; // Store the player's health before buff
@@ -101,7 +104,6 @@ public class GameManager : MonoBehaviour
 
     public void AddHealthBuff() {
         Debug.Log("Health buff added!"); // Log the addition of health buff
-        player_health += 20; // Increase the player's maximum health
         GameObject player = GameObject.FindGameObjectWithTag("Player"); // Find the player GameObject by tag
         if (player != null)
         {
@@ -110,17 +112,31 @@ public class GameManager : MonoBehaviour
 
             if (warriorController != null)
             {
-            warriorController.health += 20; // Increase the Warrior's current health
+                if (warriorController.health + 40 > player_health) // Check if adding 40 exceeds the maximum health
+                {
+                    warriorController.health = player_health; // Set the Warrior's current health to the maximum health
+                }
+                else
+                {
+                    warriorController.health += 40; // Increase the Warrior's current health
+                }
             }
             else if (mageController != null)
             {
-            mageController.health += 20; // Increase the Mage's current health
+                if (mageController.health + 40 > player_health) // Check if adding 40 exceeds the maximum health
+                {
+                    mageController.health = player_health; // Set the Mage's current health to the maximum health
+                }
+                else
+                {
+                    mageController.health += 40; // Increase the Mage's current health
+                }
             }
         }
     }
 
     public void AddDamageBuff() {
-        player_dmg += 20; // Increase the player's damage
+        player_dmg += 30; // Increase the player's damage
     }
 
     public void BuyDamage() // Method to buy damage
@@ -128,7 +144,7 @@ public class GameManager : MonoBehaviour
         if (coins >= 10) // Check if the player has enough coins
         {
             coins -= 10; // Deduct the cost from the coins
-            player_dmg += 20; // Increase the player's damage
+            player_dmg += 30; // Increase the player's damage
             Debug.Log("Damage bought!"); // Log the purchase
 
             player_dmg_before_buff = player_dmg; // Store the player's damage before buff

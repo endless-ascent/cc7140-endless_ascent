@@ -161,7 +161,7 @@ public class MageController : MonoBehaviour
 
         // Instantiate the appropriate fireball based on the scene name
         GameObject fireball;
-        if (SceneManager.GetActiveScene().name == "Acampamento")
+        if (SceneManager.GetActiveScene().name == "Acampamento" || SceneManager.GetActiveScene().name == "Boss1")
         {
             fireball = Instantiate(fireballNoLight, transform.position, Quaternion.identity);
         }

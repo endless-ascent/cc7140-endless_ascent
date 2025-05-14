@@ -7535,6 +7535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 786349469}
+  - component: {fileID: 786349470}
   m_Layer: 5
   m_Name: TrocaDeClasse
   m_TagString: Untagged
@@ -7562,6 +7563,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &786349470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786349468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be830661faf0f444f9f74d1c55e00665, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  magoButton: {fileID: 1052164178}
 --- !u!1 &848547962
 GameObject:
   m_ObjectHideFlags: 0
@@ -7965,7 +7980,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 8
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8110,9 +8125,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
-  player_dmg: 50
-  player_health: 100
-  player_current_health: 100
+  fragmentos: 0
+  player_dmg: 34
+  player_health: 67
+  player_current_health: 60
   player_health_before_buff: 0
   player_dmg_before_buff: 0
   classe: Guerreiro
@@ -8121,6 +8137,7 @@ MonoBehaviour:
   times_on_acampamento: 0
   firstDialogue: {fileID: 1160350512}
   secondDialogue: {fileID: 0}
+  isMageUnlocked: 0
 --- !u!4 &1048384677
 Transform:
   m_ObjectHideFlags: 0
@@ -8151,7 +8168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1052164179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11159,22 +11176,12 @@ MonoBehaviour:
   textComponent: {fileID: 1953651458}
   lines:
   - "Seja bem-vindo, jogador.\\n\\nPressione F para passar o di\xE1logo..."
-  - "Essa hist\xF3ria se passa em uma era distante..."
-  - "A civiliza\xE7\xE3o humana, em sua vontade exuberante de exibir sua habilidade
-    de criar grandes constru\xE7\xF5es, ascendeu uma torre muito, mas muito grande... "
-  - "Capaz de tocar o c\xE9u. "
-  - "Os deuses n\xE3o ficaram nem um pouco contentes com o feito dos humanos, e os
-    amaldi\xE7oaram. "
-  - "Os deuses fragmentaram o idioma da civiliza\xE7\xE3o em dois, impedindo a comunica\xE7\xE3o
-    entre eles. "
-  - "Os deuses tamb\xE9m tomaram posse da torre, infestando os seus andares com inimigos
-    bizarros e desafios."
   - "Voc\xEA \xE9 um guerreiro valente, que decide desafiar a ira dos deuses, escalar
     a torre e restaurar a comunica\xE7\xE3o da humanidade."
   - Derrote os deuses e colete os Fragmentos de Idioma.
   - "Voc\xEA pode ser derrotado, mas volte cada vez mais forte. Insista!"
   - "\xC9 com voc\xEA. Boa sorte!"
-  textSpeed: 0.05
+  textSpeed: 0.02
 --- !u!114 &1160350515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11834,8 +11841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f60d887a883001947aaa028340a4287f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  offset: {x: 0, y: 0, z: 0}
 --- !u!81 &1643546118
 AudioListener:
   m_ObjectHideFlags: 0

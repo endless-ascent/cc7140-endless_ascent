@@ -12,7 +12,11 @@ public class BossScript : MonoBehaviour
     public AIPath aiPath;
 
     public GameObject floorSweepProjectilePrefab;
-    
+
+    public GameObject enemyPrefab;
+    public Transform[] enemySpawnPoints;
+    public float enemySpawnInterval = 15f;
+
     private bool isAttacking = false;
     private bool canAttack = true;
     private GameObject currentTrapCrystal;
@@ -21,6 +25,8 @@ public class BossScript : MonoBehaviour
     public RuntimeAnimatorController walkController;
     public RuntimeAnimatorController deathController;
     public RuntimeAnimatorController attackController;
+    public int maxEnemies = 5; // Número máximo de inimigos vivos permitidos
+
 
     public float attackRange = 1.5f;
     public float attackAnimationDuration = 0.3f;
@@ -34,18 +40,20 @@ public class BossScript : MonoBehaviour
     private bool baon = false;
 
     public Transform[] crystalSpawnPoints;
+    public Transform[] trapCrystalSpawnPoints; // <-- NOVO campo adicionado!
     public Transform[] crystalTeleportPoints;
     public Transform[] trapTeleportPoints;
+    public GameObject fragmentoPrefab;
 
     void Start()
     {
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         animator = GetComponentInChildren<Animator>();
-        
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         StartCoroutine(CrystalSpawnCycle());
+        StartCoroutine(EnemySpawnRoutine());
     }
 
     void Update()
@@ -101,7 +109,7 @@ public class BossScript : MonoBehaviour
                     crystalScript.Initialize();
                 }
 
-                Transform spawnPoint2 = crystalSpawnPoints[Random.Range(0, crystalSpawnPoints.Length)];
+                Transform spawnPoint2 = trapCrystalSpawnPoints[Random.Range(0, trapCrystalSpawnPoints.Length)];
                 currentTrapCrystal = Instantiate(trapCrystalPrefab, spawnPoint2.position, Quaternion.identity);
 
                 CrystalTrap trapScript = currentTrapCrystal.GetComponent<CrystalTrap>();
@@ -113,7 +121,6 @@ public class BossScript : MonoBehaviour
             }
             else if (health == 1)
             {
-           
                 Transform spawnPoint1 = crystalSpawnPoints[Random.Range(0, crystalSpawnPoints.Length)];
                 currentCrystal = Instantiate(crystalPrefab, spawnPoint1.position, Quaternion.identity);
 
@@ -124,8 +131,7 @@ public class BossScript : MonoBehaviour
                     crystalScript.SetBossReference(this);
                 }
 
-           
-                Transform spawnPoint2 = crystalSpawnPoints[Random.Range(0, crystalSpawnPoints.Length)];
+                Transform spawnPoint2 = trapCrystalSpawnPoints[Random.Range(0, trapCrystalSpawnPoints.Length)];
                 currentTrapCrystal = Instantiate(trapCrystalPrefab, spawnPoint2.position, Quaternion.identity);
 
                 CrystalTrap trapScript = currentTrapCrystal.GetComponent<CrystalTrap>();
@@ -134,7 +140,6 @@ public class BossScript : MonoBehaviour
                     trapScript.teleportPoints = trapTeleportPoints;
                 }
 
-
                 if (shooterCrystalSpawnPoint != null && shooterCrystalPrefab != null)
                 {
                     Instantiate(shooterCrystalPrefab, shooterCrystalSpawnPoint.position, Quaternion.identity);
@@ -142,6 +147,23 @@ public class BossScript : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator EnemySpawnRoutine()
+    {
+        while (health > 0)
+        {
+            yield return new WaitForSeconds(enemySpawnInterval);
+
+            int currentEnemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
+
+            if (enemyPrefab != null && enemySpawnPoints.Length > 0 && currentEnemyCount < maxEnemies)
+            {
+                Transform spawnPoint = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)];
+                Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+            }
+        }
+    }
+
 
     public void LoseHealthBoss1(int damage)
     {
@@ -163,7 +185,22 @@ public class BossScript : MonoBehaviour
         if (health <= 0)
         {
             animator.runtimeAnimatorController = deathController;
+
+            GameObject gameManager = GameObject.Find("GameManager");
+            if (gameManager != null)
+            {
+                GameManager gm = gameManager.GetComponent<GameManager>();
+                if (gm != null)
+                {
+                    gm.isMageUnlocked = true;
+                }
+            }
+
+            Vector2 fragmentoPosition = new Vector2(transform.position.x, transform.position.y + 2f);
+            GameObject fragment = Instantiate(fragmentoPrefab, fragmentoPosition, Quaternion.identity);
+
             Destroy(gameObject, 0.3f);
+
         }
     }
 
@@ -181,18 +218,13 @@ public class BossScript : MonoBehaviour
         animator.runtimeAnimatorController = attackController;
 
         GameObject enemySwordHitBox = transform.Find("EnemySwordHitBox").gameObject;
-        
-        
 
         yield return new WaitForSeconds(attackAnimationDuration);
 
-        
         animator.runtimeAnimatorController = walkController;
         isAttacking = false;
 
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
-
     }
-
 }
